@@ -1,3 +1,10 @@
-# listaCompras
-app de listado de compras permite agregar un listado de productos
-la interface presenta un conjunto de temas los cuales se podran cambiar por el usuario
+# Lista De Compras
+app de listado de compras que permite generar un listado de productos.
+Desde la interface grafica permite cambiar un conjunto de temas, que el usuario podra ir cambiandolos
+
+<h3>Tecnologias utilizadas</h3>
+<ul>
+  <li>Firebase</li>
+  <li>AngularFire2</li>
+</ul>
+

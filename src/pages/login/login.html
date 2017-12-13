@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="naranja">
     <ion-title>Login</ion-title>
   </ion-navbar>
 
@@ -14,5 +14,21 @@
 
 
 <ion-content padding>
+  <img src="assets/img/logo.png" alt="Logo" class="logo">
 
+  <ion-card>
+    <ion-card-content>
+      <ion-item>
+        <ion-label floating>Nick</ion-label>
+        <ion-input type="text" [(ngModel)]="nick"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Clave</ion-label>
+        <ion-input type="password" [(ngModel)]="clave"></ion-input>
+      </ion-item>
+    </ion-card-content>
+    <ion-row>
+      <button ion-button (click)="ingresar()">Entrar</button>
+    </ion-row>
+  </ion-card>
 </ion-content>
