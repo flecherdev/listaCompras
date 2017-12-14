@@ -31,7 +31,10 @@ export class AgregarProductoPage {
   }
 
   agregarProducto(producto: Producto){
-    this.productos.agregarProduto(producto);
+    this.productos.agregarProduto(producto).then(ref => {
+      console.log(ref.key); 
+      this.navCtrl.setRoot('HomePage',{key:ref.key});
+    });
   }
 
 }

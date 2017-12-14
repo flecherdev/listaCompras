@@ -34,7 +34,7 @@ export class LoginPage {
       const element:UsuarioItem = this.usuarios[index];
       console.log(element);
       if(this.nick == element.nick && this.clave == element.clave){
-        this.navCtrl.setRoot(HomePage,element);
+        this.navCtrl.setRoot('HomePage',element);
       }
     }
   }

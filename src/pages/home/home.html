@@ -1,14 +1,26 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title color="naranja">
+  <ion-navbar color="naranja">
+    <ion-title>
       Lista De Compra
     </ion-title>
+
+    <ion-buttons end>
+      <button navPush="AgregarProductoPage" ion-button>
+        <ion-icon name="basket"></ion-icon>
+      </button>
+    </ion-buttons>
+
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-list>
+    <ion-list-header>
+      Productos
+    </ion-list-header>
+    <ion-item *ngFor="let producto of productoListaRef$ | async">
+      <h2>{{producto.nombre}}</h2>
+      <h3>precio: {{producto.precio}}</h3>
+    </ion-item>
+  </ion-list>
 </ion-content>

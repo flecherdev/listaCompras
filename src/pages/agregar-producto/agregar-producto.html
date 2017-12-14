@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="naranja">
     <ion-title>Agregar Producto</ion-title>
   </ion-navbar>
 
@@ -30,6 +30,6 @@
     <ion-input [(ngModel)]="producto.precio" type="number" placeholder="10"></ion-input>
   </ion-item>
 
-  <button ion-button block>Agregar</button>
+  <button ion-button block clear (click)="agregarProducto(producto)">Agregar</button>
 
 </ion-content>
