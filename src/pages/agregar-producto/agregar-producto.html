@@ -30,6 +30,8 @@
     <ion-input [(ngModel)]="producto.precio" type="number" placeholder="10"></ion-input>
   </ion-item>
 
-  <button ion-button block clear (click)="agregarProducto(producto)">Agregar</button>
+  <ion-row>
+    <button class="miButton"ion-button block clear (click)="agregarProducto(producto)">Agregar</button>      
+  </ion-row>
 
 </ion-content>

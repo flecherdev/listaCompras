@@ -16,17 +16,16 @@
     }
      
     .header .toolbar-background {
-        border-color: #ff0fff;
         background-color: orange;
     }
 
     ion-item{
-        background-color:rgba(51, 33, 28, 0.747);
+        background-color:rgba(143, 80, 8, 0.747);
         color:white
     }
       
     ion-list-header{
-        background-color:rgba(51, 33, 28, 0.747);
+        background-color:rgba(143, 80, 8, 0.747);
         color:white
     }
 
@@ -36,8 +35,11 @@
 
     .miButton{
         margin:auto;
+        margin-block-end: auto;
         text-align:center;
         display:block;
-        background-color:rgba(250, 99, 18, 0.699)
+        border-radius: 20px;
+        color: white;
+        background-color:rgba(250, 95, 18, 0.87)
     }
 }

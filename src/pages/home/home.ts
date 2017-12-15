@@ -46,7 +46,7 @@ export class HomePage {
 
   presentActionSheet() {
     let actionSheet = this.actionSheetCtrl.create({
-      title: 'Modify your album',
+      title: 'Elergir un tema',
       
       buttons: [
         {
@@ -81,15 +81,6 @@ export class HomePage {
       ]
     });
     actionSheet.present();
-  }
-  
-  
-  toggleAppTheme() {
-    if (this.selectTheme === 'profesional-theme') {
-      this.setting.setActiveProfesional('profesional-theme');
-    } else {
-      this.setting.setActiveProfesional('naif-theme');
-    }
   }
 
 }

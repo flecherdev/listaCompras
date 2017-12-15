@@ -2,13 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UsuarioItem } from '../../models/usuario-item/usuario-item.interface';
 import { HomePage } from '../home/home';
-import { SettingProvider } from '../../providers/setting/setting';
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -23,10 +17,10 @@ export class LoginPage {
   nick:string;
   clave:string;
   
-  selectTheme:String;
+  //selectTheme:String;
 
-  constructor(private navCtrl: NavController, private navParams: NavParams,private setting: SettingProvider) {
-    this.setting.getActiveProfesional().subscribe(val => this.selectTheme = val);
+  constructor(private navCtrl: NavController, private navParams: NavParams) {
+    
   }
 
   ingresar(){

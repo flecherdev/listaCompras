@@ -9,7 +9,28 @@
         font-family: 'Boogaloo', cursive;
     }
      
-    .toolbar-background {
-        background-color: #fff;
+    .header .toolbar-background {
+        background-color: #b2ff59;
+    }
+
+    ion-item{
+        background-color:rgba(83, 182, 69, 0.582);
+        color:rgba(248, 83, 7, 0.897)
+    }
+      
+    ion-list-header{
+        background-color:rgba(83, 182, 69, 0.582);
+        color:rgba(248, 83, 7, 0.897)
+    }
+
+    ion-card{
+        background-color:rgba(129, 44, 21, 0.747);
+    }
+
+    .miButton{
+        margin:auto;
+        text-align:center;
+        display:block;
+        background-color:rgba(250, 99, 18, 0.699)
     }
 }
