@@ -1,7 +1,11 @@
 .argentina-theme{
     ion-content{
-        background-image: url('assets/img/fondo/bandera.jpg');
+        background-image: url('../assets/img/fondo/bandera.jpg');
         background-size: 100% auto;
+    }
+
+    ion-header,ion-content{
+        font-family: 'Lobster', cursive;
     }
 
     ion-nav{
