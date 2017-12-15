@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar color="naranja">
+  <ion-navbar >
     <ion-title>
       Lista De Compra
     </ion-title>
@@ -10,10 +10,17 @@
       </button>
     </ion-buttons>
 
+    <ion-buttons end>
+      <button (click)="presentActionSheet()" ion-button>
+        <ion-icon name="brush"></ion-icon>
+      </button>
+    </ion-buttons>
+
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  <button ion-button (click)="toggleAppTheme()">Profesional tema</button>
   <ion-list>
     <ion-list-header>
       Productos

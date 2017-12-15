@@ -10,6 +10,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireModule } from 'angularfire2';
 import { FIREBASE_CONFIG } from '../app/firebase.credentials';
 import { ProductoListaService } from '../services/producto-list/producto-list.service';
+import { SettingProvider } from '../providers/setting/setting';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ProductoListaService } from '../services/producto-list/producto-list.se
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ProductoListaService
+    ProductoListaService,
+    SettingProvider
   ]
 })
 export class AppModule {}

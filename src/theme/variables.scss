@@ -22,7 +22,9 @@ $app-direction: ltr;
 // To view all the possible Ionic variables, see:
 // http://ionicframework.com/docs/theming/overriding-ionic-variables/
 
-
+@import "theme.argentina";
+@import "theme.naif";
+@import "theme.profesional";
 
 
 // Named Color Variables
@@ -87,3 +89,4 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+@import url("https://fonts.googleapis.com/css?family=Righteous"); //fuente de profesional
