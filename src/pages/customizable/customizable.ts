@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
+import { SettingProvider } from '../../providers/setting/setting';
 
 
 /**
@@ -17,7 +18,11 @@ import { AlertController } from 'ionic-angular';
 })
 export class CustomizablePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+  selectTheme:String;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController,
+    private setting: SettingProvider) {
+      this.setting.getActiveProfesional().subscribe(val => this.selectTheme = val);
   }
 
   ionViewDidLoad() {
@@ -138,6 +143,20 @@ export class CustomizablePage {
   // ------ Funciones para asignacion de datos -------- //
   backgroudColor(data){
     console.log('Color de Fondo: ' + data);
+    switch (data) {
+      case 'azul':
+        this.setting.setActiveProfesional('fondo-azul');
+        break;
+      case 'rojo':
+        this.setting.setActiveProfesional('fondo-rojo');
+        break;
+      case 'verde':
+        this.setting.setActiveProfesional('fondo-verde');
+        break;
+      default:
+        break;
+    }
+    //this.setting.setActiveProfesional('argentina-theme');
   }
 
   typeFont(data){
