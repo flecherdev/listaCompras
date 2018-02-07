@@ -15,7 +15,9 @@
 
     ion-item{
         background-color:rgba(83, 182, 69, 0.582);
-        color:rgba(248, 83, 7, 0.897)
+        color:rgba(248, 83, 7, 0.897);
+        border-radius: 20px;
+        border-block-end-color: white;
     }
       
     ion-list-header{
@@ -31,6 +33,7 @@
         margin:auto;
         text-align:center;
         display:block;
-        background-color:rgba(250, 99, 18, 0.699)
+        color: white;
+        background-color:rgba(99, 219, 18, 0.699)
     }
 }

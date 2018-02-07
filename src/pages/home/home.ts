@@ -18,7 +18,7 @@ export class HomePage {
   selectTheme:String;
 
   constructor(public navCtrl: NavController, private productos: ProductoListaService,
-     private setting: SettingProvider,public actionSheetCtrl: ActionSheetController) {
+    private setting: SettingProvider,public actionSheetCtrl: ActionSheetController) {
     this.setting.getActiveProfesional().subscribe(val => this.selectTheme = val);
 
     this.productoListaRef$ = this.productos
@@ -32,6 +32,8 @@ export class HomePage {
     });
   }
 
+
+  // ------  Seleccion de temas ------- //
   temaArgentina(){
     this.setting.setActiveProfesional('argentina-theme');
   }
@@ -44,6 +46,7 @@ export class HomePage {
     this.setting.setActiveProfesional('naif-theme');
   }
 
+
   presentActionSheet() {
     let actionSheet = this.actionSheetCtrl.create({
       title: 'Elergir un tema',
@@ -53,21 +56,29 @@ export class HomePage {
           text: 'Profesional',
           role: 'destructive',
           handler: () => {
-            console.log('Destructive clicked');
+            console.log('Profesional clicked');
             this.temaProfesional();
           }
         },
         {
           text: 'Argentina',
           handler: () => {
-            console.log('Archive clicked');
+            console.log('Argentina clicked');
             this.temaArgentina();
+          }
+        },
+        {
+          text: 'Personalizable',
+          handler: () => {
+            console.log('Personalizable clicked');
+            //this.temaArgentina();
+            this.navCtrl.push('CustomizablePage');
           }
         },
         {
           text: 'Naif',
           handler: () => {
-            console.log('Archive clicked');
+            console.log('Naif clicked');
             this.temaNaif();
           }
         },
