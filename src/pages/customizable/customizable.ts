@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { SettingProvider } from '../../providers/setting/setting';
 
+import { TemaCustom } from '../../models/tema-custom/tema-custom';
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the CustomizablePage page.
@@ -18,53 +20,30 @@ import { SettingProvider } from '../../providers/setting/setting';
 })
 export class CustomizablePage {
 
+
   selectTheme:String;
+  miTema:TemaCustom = null;
+  tema:string="";
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController,
     private setting: SettingProvider) {
+      this.miTema = {colorFondo:"",colorLetra:"",sizeLetra:"",tipoLetra:""};
+      if(this.tema == "custom"){
+        console.log("se customizo a defecto");
+        //this.setting.setActiveProfesional('variables.scss');
+        this.miTema = JSON.parse(localStorage.getItem('miTema'));
+      }
       this.setting.getActiveProfesional().subscribe(val => this.selectTheme = val);
   }
 
-  ionViewDidLoad() {
+  /*ionViewDidLoad() {
     console.log('ionViewDidLoad CustomizablePage');
-  }
 
-  showBackgroud() {
-    let alert = this.alertCtrl.create();
-    alert.setTitle('Fondo');
+    
+  }*/
 
-    alert.addInput({
-      type: 'radio',
-      label: 'Azul',
-      value: 'azul',
-      checked: true
-    });
+  
 
-    alert.addInput({
-      type: 'radio',
-      label: 'Rojo',
-      value: 'rojo',
-      checked: false
-    });
-
-    alert.addInput({
-      type: 'radio',
-      label: 'Verde',
-      value: 'verde',
-      checked: false
-    });
-
-    alert.addButton('Cancelar');
-    alert.addButton({
-      text: 'Aceptar',
-      handler: data => {
-        //this.testRadioOpen = false;
-        //this.testRadioResult = data;
-        this.backgroudColor(data);
-      }
-    });
-    alert.present();
-  }
 
   showFont() {
     let alert = this.alertCtrl.create();
@@ -73,21 +52,21 @@ export class CustomizablePage {
     alert.addInput({
       type: 'radio',
       label: 'Righteous',
-      value: 'righteous',
+      value: 'Righteous',
       checked: true
     });
 
     alert.addInput({
       type: 'radio',
       label: 'Lobster',
-      value: 'lobster',
+      value: 'Robster',
       checked: false
     });
 
     alert.addInput({
       type: 'radio',
       label: 'Boogaloo',
-      value: 'boogaloo',
+      value: 'Boogaloo',
       checked: false
     });
 
@@ -97,7 +76,8 @@ export class CustomizablePage {
       handler: data => {
         //this.testRadioOpen = false;
         //this.testRadioResult = data;
-        this.typeFont(data);
+       // this.typeFont(data);
+        this.miTema.tipoLetra = data;
       }
     });
     alert.present();
@@ -134,37 +114,33 @@ export class CustomizablePage {
       handler: data => {
         //this.testRadioOpen = false;
         //this.testRadioResult = data;
-        this.sizeFont(data);
+        //this.sizeFont(data);
+        this.miTema.sizeLetra = data;
       }
     });
     alert.present();
   }
 
   // ------ Funciones para asignacion de datos -------- //
-  backgroudColor(data){
-    console.log('Color de Fondo: ' + data);
-    switch (data) {
-      case 'azul':
-        this.setting.setActiveProfesional('fondo-azul');
-        break;
-      case 'rojo':
-        this.setting.setActiveProfesional('fondo-rojo');
-        break;
-      case 'verde':
-        this.setting.setActiveProfesional('fondo-verde');
-        break;
-      default:
-        break;
-    }
-    //this.setting.setActiveProfesional('argentina-theme');
-  }
+
 
   typeFont(data){
-    console.log('Tipo de Fuente: ' + data)
+    console.log('Tipo de Fuente: ' + data);
+    this.miTema.tipoLetra = data;
   }
 
-  sizeFont(data){
-    console.log('Tamaño de Letra: ' + data);
+
+
+  
+  aceptar(){
+    localStorage.setItem('miTema', JSON.stringify(this.miTema));
+    localStorage.setItem('tema',"custom");
+    this.setting.setActiveProfesional('variables.scss');
+    this.navCtrl.setRoot('HomePage');
+  }
+
+  cancelar(){
+    this.navCtrl.setRoot('HomePage');
   }
 
 }
