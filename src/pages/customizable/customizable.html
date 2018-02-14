@@ -4,31 +4,47 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header [style.font-family]="miTema.tipoLetra">
+<ion-header  [style.color]="miTema.colorNav" [style.font-family]="miTema.tipoLetra">
 
-  <ion-navbar>
-    <ion-title>customizable</ion-title>
+  <ion-navbar [color]="miTema.colorNav" [style.font-size.px]="miTema.sizeLetra">
+    <ion-title [style.color]="miTema.colorLetra">Personalizar Tema</ion-title>
   </ion-navbar>
 
 </ion-header>
 
-<ion-content padding [style.backgroud-color]="miTema.colorFondo" [style.font-family]="miTema.tipoLetra" [style.font-size]="miTema.sizeLetra">
+<ion-content padding [ngStyle]="{ 'background-color':+ miTema.colorFondo}" [style.font-family]="miTema.tipoLetra" [style.font-size.px]="miTema.sizeLetra">
   <ion-card>
     <ion-card-content>
       <ion-item>
-        <ion-label>Color de fondo</ion-label>
+        <ion-label [style.color]="miTema.colorLetra">Color de fondo</ion-label>
         <ion-input type="color" [(ngModel)]="miTema.colorFondo"></ion-input>
       </ion-item>
+      <ion-item>
+        <ion-label [style.color]="miTema.colorLetra">Color de Letra</ion-label>
+        <ion-input type="color" [(ngModel)]="miTema.colorLetra"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label [style.color]="miTema.colorLetra">Color de Boton</ion-label>
+        <ion-input type="color" [(ngModel)]="miTema.colorBoton"></ion-input>
+      </ion-item>
+      <!--<ion-item>
+        <ion-label>Color de Nav</ion-label>
+        <ion-input type="color" [(ngModel)]="miTema.colorNav"></ion-input>
+      </ion-item>-->
+      <ion-item>
+        <ion-label [style.color]="miTema.colorLetra">Radio del boton</ion-label>
+        <ion-input type="text" value="10px"[(ngModel)]="miTema.radioBoton"></ion-input>
+      </ion-item>
       <ion-row>
-        <!-- <button class="miButton" ion-button full (click)="showBackgroud()">Color de Fondo</button>-->
-        <button class="miButton" ion-button full (click)="showFont()">Tipo de Letra</button>
-        <button class="miButton" ion-button full (click)="showSize()">Tamaño de Letra</button>
+        <button class="miButton"[ngStyle]="{ 'background-color':+ miTema.colorBoton}" [style.font-size.px]="miTema.sizeLetra" [style.border-radius]="miTema.radioBoton" [ngStyle]="{'color':+ miTema.colorFuente}" ion-button full (click)="showColorNav()">Color de Nav</button>
+        <button class="miButton" [ngStyle]="{ 'background-color':+ miTema.colorBoton}" [style.font-size.px]="miTema.sizeLetra" [style.border-radius]="miTema.radioBoton" [ngStyle]="{'color':+ miTema.colorFuente}"  ion-button full (click)="showFont()">Tipo de Letra</button>
+        <button class="miButton" [ngStyle]="{ 'background-color':+ miTema.colorBoton}" [style.font-size.px]="miTema.sizeLetra" [style.border-radius]="miTema.radioBoton" [ngStyle]="{'color':+ miTema.colorFuente}" ion-button full (click)="showSize()">Tamaño de Letra</button>
       </ion-row>
       <ion-row>
         
       </ion-row>
-        <button class="miButton" ion-button block (click)="aceptar()">Aceptar</button>
-        <button class="miButton" ion-button block (click)="cancelar()">Cancelar</button>
+        <button class="miButton" [ngStyle]="{ 'background-color':+ miTema.colorBoton}" [style.font-size.px]="miTema.sizeLetra" [style.border-radius]="miTema.radioBoton" [ngStyle]="{'color':+ miTema.colorFuente}" ion-button block (click)="aceptar()">Aceptar</button>
+        <button class="miButton" [ngStyle]="{ 'background-color':+ miTema.colorBoton}" [style.font-size.px]="miTema.sizeLetra" [style.border-radius]="miTema.radioBoton" [ngStyle]="{'color':+ miTema.colorFuente}" ion-button block (click)="cancelar()">Cancelar</button>
       <ion-row>
         
       </ion-row>
