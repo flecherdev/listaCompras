@@ -4,34 +4,33 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
+<ion-header  [style.font-family]="miTema.tipoLetra">
 
-  <ion-navbar>
-    <ion-title>Agregar Producto</ion-title>
+  <ion-navbar [color]="miTema.colorNav" [style.font-size.px]="miTema.sizeLetra">
+    <ion-title [style.color]="miTema.colorLetra">Agregar Producto</ion-title>
   </ion-navbar>
 
 </ion-header>
 
-
-<ion-content padding>
+<ion-content padding color="miTema.colorFuente" [ngStyle]="{'background-color':+ miTema.colorFondo}" [style.font-family]="miTema.tipoLetra" [style.font-size.px]="miTema.sizeLetra">
 
   <ion-item>
-    <ion-label>Nombre</ion-label>
+    <ion-label [style.color]="miTema.colorLetra">Nombre</ion-label>
     <ion-input [(ngModel)]="producto.nombre" type="text" placeholder="Sopa"></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label>Cantidad</ion-label>
+    <ion-label [style.color]="miTema.colorLetra">Cantidad</ion-label>
     <ion-input [(ngModel)]="producto.cantidad" type="number" placeholder="1"></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label>Precio</ion-label>
+    <ion-label [style.color]="miTema.colorLetra">Precio</ion-label>
     <ion-input [(ngModel)]="producto.precio" type="number" placeholder="10"></ion-input>
   </ion-item>
   
   <ion-row>
-    <button class="miButton"ion-button block clear (click)="agregarProducto(producto)">Agregar</button>      
+    <button class="miButton" [ngStyle]="{ 'background-color':+ miTema.colorBoton}" [style.font-size.px]="miTema.sizeLetra" [style.border-radius]="miTema.radioBoton" [style.color]="miTema.colorFuente" ion-button full  (click)="agregarProducto(producto)">Agregar</button>      
   </ion-row>
 
 </ion-content>

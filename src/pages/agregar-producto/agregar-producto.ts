@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Producto } from '../../models/producto/producto.models';
 import { ProductoListaService } from '../../services/producto-list/producto-list.service';
+import { TemaCustom } from '../../models/tema-custom/tema-custom';
 
 /**
  * Generated class for the AgregarProductoPage page.
@@ -22,8 +23,19 @@ export class AgregarProductoPage {
     cantidad:0,
     precio:0,
   };
+  //tema custom
+  miTema:TemaCustom;
+  tema:string="";
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private productos: ProductoListaService) {
+    //tema custom
+    this.miTema = {colorFondo:"",colorLetra:"",colorBoton:"",colorNav:"",sizeLetra:"",tipoLetra:"",radioButton:"",iconoAgregar:"",iconoTema:""};
+    this.tema = localStorage.getItem('tema');
+    
+    if(this.tema == "custom"){
+      console.log("ingresa a custom");
+      this.miTema = JSON.parse(localStorage.getItem('miTema'));
+    }
   }
 
   ionViewDidLoad() {
