@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { Producto } from '../../models/producto/producto.models';
 import { SettingProvider } from '../../providers/setting/setting';
 import { ActionSheetController } from 'ionic-angular'
+import { TemaCustom } from '../../models/tema-custom/tema-custom';
 
 
 @IonicPage()
@@ -16,10 +17,26 @@ export class HomePage {
 
   productoListaRef$: Observable<Producto[]>;
   selectTheme:String;
+  //tema custom
+  miTema:TemaCustom;
+  tema:string="";
 
   constructor(public navCtrl: NavController, private productos: ProductoListaService,
     private setting: SettingProvider,public actionSheetCtrl: ActionSheetController) {
     this.setting.getActiveProfesional().subscribe(val => this.selectTheme = val);
+    
+    //tema custom
+    this.miTema = {colorFondo:"",colorLetra:"",colorBoton:"",colorNav:"",sizeLetra:"",tipoLetra:"",radioButton:"",iconoAgregar:"",iconoTema:""};
+    this.tema = localStorage.getItem('tema');
+    console.log("Tema constructor: "+this.tema);
+    if(this.tema == "custom"){
+      console.log("Ingresa a custom");
+      this.miTema = JSON.parse(localStorage.getItem('miTema'));
+    }else{
+      this.miTema.iconoAgregar = "basket";
+      this.miTema.iconoTema = "brush";
+      console.log(this.miTema);
+    }
 
     this.productoListaRef$ = this.productos
     .traerListaProductos()
@@ -30,22 +47,34 @@ export class HomePage {
         ...c.payload.val(),
       }));
     });
+
   }
 
+  ionViewDidLoad() {
+    console.log("Tema: "+this.tema);
+    console.log(this.miTema);
+    console.log(this.miTema.colorFondo);
+    console.log('------------------------');
+  }
 
   // ------  Seleccion de temas ------- //
   temaArgentina(){
+    localStorage.clear();
+    localStorage.setItem('tema',"argentina");
     this.setting.setActiveProfesional('argentina-theme');
   }
 
   temaProfesional(){
+    localStorage.clear();
+    localStorage.setItem('tema',"profesional");
     this.setting.setActiveProfesional('profesional-theme');
   }
 
   temaNaif(){
+    localStorage.clear();
+    localStorage.setItem('tema',"naif");
     this.setting.setActiveProfesional('naif-theme');
   }
-
 
   presentActionSheet() {
     let actionSheet = this.actionSheetCtrl.create({

@@ -1,32 +1,32 @@
-<ion-header>
-  <ion-navbar >
+<ion-header  [style.font-family]="miTema.tipoLetra">
+  <ion-navbar  [color]="miTema.colorNav" [style.font-size.px]="miTema.sizeLetra">
     <ion-title>
       Lista De Compra
     </ion-title>
 
     <ion-buttons end>
       <button navPush="AgregarProductoPage" ion-button>
-        <ion-icon name="basket"></ion-icon>
+        <ion-icon [name]="miTema.iconoAgregar"></ion-icon>
       </button>
     </ion-buttons>
 
     <ion-buttons end>
       <button (click)="presentActionSheet()" ion-button>
-        <ion-icon name="brush"></ion-icon>
+        <ion-icon [name]="miTema.iconoTema"></ion-icon>
       </button>
     </ion-buttons>
 
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-list>
-    <ion-list-header>
+<ion-content padding  [ngStyle]="{ 'background-color':+ miTema.colorFondo}" [style.font-family]="miTema.tipoLetra" [style.font-size.px]="miTema.sizeLetra" >
+  <ion-list [style.font-size.px]="miTema.sizeLetra">
+    <ion-list-header [style.color]="miTema.colorLetra">
       Productos
     </ion-list-header>
     <ion-item *ngFor="let producto of productoListaRef$ | async">
-      <h2>{{producto.nombre}}</h2>
-      <h3>precio: {{producto.precio}}</h3>
+      <h2 [style.color]="miTema.colorLetra">{{producto.nombre}}</h2>
+      <h3 [style.color]="miTema.colorLetra">precio: {{producto.precio}}</h3>
     </ion-item>
   </ion-list>
 </ion-content>
