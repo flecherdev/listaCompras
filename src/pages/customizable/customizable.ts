@@ -27,7 +27,7 @@ export class CustomizablePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController,
     private setting: SettingProvider) {
-      this.miTema = {colorFondo:"",colorLetra:"",colorBoton:"",colorNav:"",sizeLetra:"",tipoLetra:"",radioButton:"",colorIcono:""};
+      this.miTema = {colorFondo:"",colorLetra:"",colorBoton:"",colorNav:"",sizeLetra:"",tipoLetra:"",radioButton:"",iconoAgregar:"",iconoTema:""};
       this.tema = localStorage.getItem('tema');
       this.setting.setActiveProfesional('variables.scss'); //elimina estilos previos
       if(this.tema == "custom"){
@@ -242,28 +242,28 @@ export class CustomizablePage {
     alert.present();
   }
 
-  showColorIcono() {
+  showIcono() {
     let alert = this.alertCtrl.create();
     alert.setTitle('Tamaño');
 
     alert.addInput({
       type: 'radio',
-      label: 'Azul',
-      value: 'azul',
+      label: 'Estandar',
+      value: '1',
       checked: true
     });
 
     alert.addInput({
       type: 'radio',
-      label: 'Violeta',
-      value: 'violeta',
+      label: 'Medio',
+      value: '2',
       checked: false
     });
 
     alert.addInput({
       type: 'radio',
-      label: 'Verde',
-      value: 'verde',
+      label: 'Profesional',
+      value: '3',
       checked: false
     });
 
@@ -271,8 +271,23 @@ export class CustomizablePage {
     alert.addButton({
       text: 'Aceptar',
       handler: data => {
-
-        this.miTema.colorIcono = data;
+        switch (data) {
+          case '1':
+            this.miTema.iconoAgregar="add-circle";
+            this.miTema.iconoTema="brush";
+            break;
+          case '2':
+            this.miTema.iconoAgregar="add";
+            this.miTema.iconoTema="bowtie";
+            break;
+          case '3':
+            this.miTema.iconoAgregar="basket";
+            this.miTema.iconoTema="settings";
+            break;
+          default:
+            break;
+        }
+        //this.miTema.colorIcono = data;
       }
     });
     alert.present();
