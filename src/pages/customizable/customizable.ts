@@ -27,9 +27,9 @@ export class CustomizablePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController,
     private setting: SettingProvider) {
-      this.miTema = {colorFondo:"",colorLetra:"",colorBoton:"",colorNav:"",sizeLetra:"",tipoLetra:"",radioButton:""};
-      this.setting.setActiveProfesional('variables.scss'); //elimina estilos previos
+      this.miTema = {colorFondo:"",colorLetra:"",colorBoton:"",colorNav:"",sizeLetra:"",tipoLetra:"",radioButton:"",colorIcono:""};
       this.tema = localStorage.getItem('tema');
+      this.setting.setActiveProfesional('variables.scss'); //elimina estilos previos
       if(this.tema == "custom"){
         console.log("ingresa a custom");
         //this.setting.setActiveProfesional('variables.scss');
@@ -174,6 +174,27 @@ export class CustomizablePage {
       checked: false
     });
 
+    alert.addInput({
+      type: 'radio',
+      label: 'Blanco',
+      value: 'light',
+      checked: false
+    });
+
+    alert.addInput({
+      type: 'radio',
+      label: 'Negro',
+      value: 'dark',
+      checked: false
+    });
+
+    alert.addInput({
+      type: 'radio',
+      label: 'Naranja',
+      value: 'naranja',
+      checked: false
+    });
+
     alert.addButton('Cancelar');
     alert.addButton({
       text: 'Aceptar',
@@ -221,6 +242,42 @@ export class CustomizablePage {
     alert.present();
   }
 
+  showColorIcono() {
+    let alert = this.alertCtrl.create();
+    alert.setTitle('Tamaño');
+
+    alert.addInput({
+      type: 'radio',
+      label: 'Azul',
+      value: 'azul',
+      checked: true
+    });
+
+    alert.addInput({
+      type: 'radio',
+      label: 'Violeta',
+      value: 'violeta',
+      checked: false
+    });
+
+    alert.addInput({
+      type: 'radio',
+      label: 'Verde',
+      value: 'verde',
+      checked: false
+    });
+
+    alert.addButton('Cancelar');
+    alert.addButton({
+      text: 'Aceptar',
+      handler: data => {
+
+        this.miTema.colorIcono = data;
+      }
+    });
+    alert.present();
+  }
+
   // ------ Funciones para asignacion de datos -------- //
 
   aceptar(){
@@ -234,6 +291,7 @@ export class CustomizablePage {
   }
 
   cancelar(){
+    this.setting.setActiveProfesional(this.tema);
     this.navCtrl.setRoot('HomePage');
   }
 
