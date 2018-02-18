@@ -11,10 +11,13 @@ import { AngularFireModule } from 'angularfire2';
 import { FIREBASE_CONFIG } from '../app/firebase.credentials';
 import { ProductoListaService } from '../services/producto-list/producto-list.service';
 import { SettingProvider } from '../providers/setting/setting';
+import { TemaCustomProvider } from '../providers/tema-custom/tema-custom';
+
 
 @NgModule({
   declarations: [
-    MyApp,
+    MyApp
+    
   ],
   imports: [
     BrowserModule,
@@ -24,14 +27,16 @@ import { SettingProvider } from '../providers/setting/setting';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
+    MyApp
+    
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ProductoListaService,
-    SettingProvider
+    SettingProvider,
+    TemaCustomProvider
   ]
 })
 export class AppModule {}

@@ -11,6 +11,7 @@ export class SettingProvider {
 
   constructor() {
     this.theme = new BehaviorSubject('profesional-theme');
+    localStorage.setItem('tema',"profesional");
   }
 
   setActiveProfesional(value){
@@ -20,5 +21,44 @@ export class SettingProvider {
   getActiveProfesional(){
     return this.theme.asObservable();
   }
+
+  setTemaBoton(tipoLetra,sizeLetra,colorLetra,colorBoton){
+    let style = {
+      'background-color': 'colorBoton',
+      'color' : 'colorLetra',
+      'font-size': 'sizeLetra',
+      'font-family': 'tipoLetra'
+    }
+
+    return style;
+  }
+
+  setTemaNav(colorNav){
+    let style = {
+      'background-color': 'red'
+    }
+      
+    return style;
+  }
+
+  setTemaBackgroud(colorFondo){
+    let style = {
+      'background-color': "colorFondo",
+    }
+
+    return style;
+  }
+
+  setTemaLetra(colorLetra,sizeLetra,tipoLetra){
+    let style = {
+      'color' : "colorLetra",
+      'font-size': "sizeLetra",
+      'font-family': "tipoLetra"
+    }
+
+    return style;
+  }
+
+ 
 
 }

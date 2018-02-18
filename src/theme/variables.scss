@@ -26,9 +26,15 @@ $app-direction: ltr;
 @import "theme.naif";
 @import "theme.profesional";
 
+/* Fondo Customizable */
 @import "color-fondo/fondo.azul";
 @import "color-fondo/fondo.rojo";
 @import "color-fondo/fondo.verde";
+
+/* Tipo de letra Customizable */
+@import "tipo-letra/tipo.boogaloo";
+@import "tipo-letra/tipo.lobster";
+@import "tipo-letra/tipo.righteous";
 
 // Named Color Variables
 // --------------------------------------------------
@@ -45,6 +51,7 @@ $colors: (
   light:      #f4f4f4,
   dark:       #222,
   naranja:    orange,
+  rosa:       pink,
 );
 
 
@@ -95,3 +102,22 @@ $colors: (
 @import url("https://fonts.googleapis.com/css?family=Righteous"); //fuente de profesional
 @import url("https://fonts.googleapis.com/css?family=Lobster"); //fueten de argentina
 @import url("https://fonts.googleapis.com/css?family=Boogaloo");//fuente de naif
+// --- Fuentes de customizable
+@import url('https://fonts.googleapis.com/css?family=Montserrat');//Monserrat
+//font-family: 'Montserrat', sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Slabo+27px');//Montserrat
+//font-family: 'Merriweather', serif;
+@import url('https://fonts.googleapis.com/css?family=Merriweather');//Merriweather
+//font-family: 'Merriweather', serif;
+@import url('https://fonts.googleapis.com/css?family=Raleway');//Raleway
+//font-family: 'Raleway', sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');//Josefin+Sans
+//font-family: 'Josefin Sans', sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Hind');//Hind
+//font-family: 'Hind', sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Pacifico');//Pacifico
+//font-family: 'Pacifico', cursive;
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');//Dancing+Script
+//font-family: 'Dancing Script', cursive;
+@import url('https://fonts.googleapis.com/css?family=Francois+One');//Francois+One
+//font-family: 'Francois One', sans-serif;
